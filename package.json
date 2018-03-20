@@ -1,0 +1,30 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "\"# node-todo-api\"",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "mongoose": "^5.0.11",
+    "express": "^4.16.3"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erandagan1000/node-todo-api.git"
+  },
+  "author": "Eran",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/erandagan1000/node-todo-api/issues"
+  },
+  "homepage": "https://github.com/erandagan1000/node-todo-api#readme"
+}
