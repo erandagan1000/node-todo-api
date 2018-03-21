@@ -28,4 +28,13 @@ Todo.findById(id).then((todo)=>{
     console.log('Todo by Id',todo);
 }).catch((e) => console.log(e));
 
+//remove examples
+Todo.findOneAndRemove({_id:'abc1234'},(todo)=>{
 
+
+});
+
+Todo.findByIdAndRemove('abc1234',(todo)=>{
+    
+
+});
