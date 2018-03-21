@@ -1,3 +1,4 @@
+require('./config/config');
 //remote libs
 const express= require('express');
 const bodyParser = require('body-parser');
