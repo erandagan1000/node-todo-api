@@ -33,6 +33,13 @@ var UserSchema = new mongoose.Schema({
     }]
 });
 
+//override method to override the default json that is sen to client
+UserSchema.methods.toJSON = function(){
+    var user =this;
+    var userObject = user.toObject();
+    return _.pick(userObject,['_id','email']);
+};
+
 UserSchema.methods.generateAuthToken = function() {
     var user = this;
     var access = 'auth';
@@ -45,11 +52,22 @@ UserSchema.methods.generateAuthToken = function() {
     });
 };
 
-//override method to override the default json that is sen to client
-UserSchema.methods.toJSON = function(){
-    var user =this;
-    var userObject = user.toObject();
-    return _.pick(userObject,['_id','email']);
+UserSchema.static.findByToken = function(token) {
+    var User= this;
+    var decoded;
+    
+    try {
+        decoded = jwt.verify(token, 'abc123');
+        User.findOne({
+            '_id': decoded._id,
+            'tokens.token': token,
+            'tokens.access': 'auth'
+        })
+
+    } catch (e) {
+
+    }
+
 };
 
 var User = mongoose.model('User',UserSchema);
